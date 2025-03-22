@@ -18,13 +18,6 @@ def emotion_analysis() -> str:
     """ Analyze text and return emotion detection (analysis result) """
     text_to_analyze = request.args["textToAnalyze"]
     analysis_result = emotion_detector(text_to_analyze)
-
-    # Required output format:
-    # For the given statement, the system response is '<emotion1>': <score1>,
-    # '<emotion2>': <score2>, '<emotionN>': <scoreN>. The dominant emotion is <emotion>.
-    #
-    # Required output format when dominant_emotion == None:
-    # Invalid text! Please try again.
     if analysis_result["dominant_emotion"] is None:
         response = "Invalid text! Please try again!"
     else:
